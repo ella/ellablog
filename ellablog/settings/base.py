@@ -1,23 +1,16 @@
 # Django settings for ellablog project.
 
-from tempfile import gettempdir
 from os.path import join, dirname
 
 import ellablog
 
 PROJECT_ROOT = dirname(ellablog.__file__)
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
 ADMINS = (
     ('Honza Kral', 'honza.kral@gmail.com'),
 )
 
 MANAGERS = ADMINS
-
-DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = join(gettempdir(), 'ellablog.db')
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -44,9 +37,6 @@ MEDIA_ROOT = join(PROJECT_ROOT, 'static')
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/static/'
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '1#h7o0k$ea%ciox$$p&@(r&1eokb*mvk(n(v9!wb11bt(^4$ns'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -88,8 +78,6 @@ INSTALLED_APPS = (
 
     'djangomarkup',
 )
-
-CACHE_BACKEND = 'dummy://'
 
 NEWMAN_MEDIA_PREFIX = MEDIA_URL + 'newman/'
 
