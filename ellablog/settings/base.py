@@ -3,7 +3,9 @@
 from tempfile import gettempdir
 from os.path import join, dirname
 
-PROJECT_ROOT = dirname(__file__)
+import ellablog
+
+PROJECT_ROOT = dirname(ellablog.__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
