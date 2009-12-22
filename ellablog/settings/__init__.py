@@ -1,3 +1,6 @@
+# logging init - this options should be overriden somewhere
+LOGGING_CONFIG_FILE = None
+
 # load base configuration for whole app
 from ellablog.settings.base import *
 
@@ -18,3 +21,7 @@ try:
     from ellablog.settings.local import *
 except ImportError:
     pass
+
+if LOGGING_CONFIG_FILE:
+    import logging.config
+    logging.config.fileConfig(LOGGING_CONFIG_FILE)

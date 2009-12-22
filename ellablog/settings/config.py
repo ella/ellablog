@@ -13,5 +13,8 @@ DATABASE_NAME = join(gettempdir(), 'ellablog.db')
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '1#h7o0k$ea%ciox$$p&@(r&1eokb*mvk(n(v9!wb11bt(^4$ns'
 
+# cache settings
 CACHE_BACKEND = 'dummy://'
 
+# init logger
+LOGGING_CONFIG_FILE = join(dirname(ellablog.__file__), 'settings', 'logging.ini')
