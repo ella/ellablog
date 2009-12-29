@@ -71,13 +71,16 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.redirects',
+    'django.contrib.comments',
 
     'ella.core',
     'ella.photos',
     'ella.newman',
     'ella.articles',
+    'ella.ellacomments',
 
     'djangomarkup',
+    'threadedcomments',
 
     'ellablog.service',
 )
@@ -85,3 +88,5 @@ INSTALLED_APPS = (
 NEWMAN_MEDIA_PREFIX = MEDIA_URL + 'newman/'
 
 DEFAULT_MARKUP = 'markdown'
+
+COMMENTS_APP = 'threadedcomments'

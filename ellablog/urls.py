@@ -5,9 +5,13 @@ from ella import newman
 
 # make sure to import ella error handlers
 from ella.core.urls import handler404, handler500
+from ella.utils.installedapps import call_modules
+
 
 # register ella's admin
 newman.autodiscover()
+# and discover ella apps
+call_modules(auto_discover=('register', ))
 
 urlpatterns = patterns('',)
 
