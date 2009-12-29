@@ -1,0 +1,148 @@
+[
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "admin", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2009-12-29 02:27:11", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$fc4e2$bbd6eb21858e3c97f8ad445a5999c17e66bd50c6", 
+            "email": "admin@example.com", 
+            "date_joined": "2009-12-29 02:26:43"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "ella.github.com", 
+            "name": "Ella blog"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "core.author", 
+        "fields": {
+            "description": "", 
+            "text": "", 
+            "email": "", 
+            "user": 1, 
+            "slug": "ella-superuser", 
+            "name": "Ella Superuser"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "core.category", 
+        "fields": {
+            "tree_parent": null, 
+            "description": "Main category of our sample blog site.", 
+            "title": "Ella blog", 
+            "site": 1, 
+            "tree_path": "", 
+            "slug": "ella-blog"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "core.publishable", 
+        "fields": {
+            "category": 1, 
+            "publish_from": "2009-12-25 06:00:00", 
+            "description": "<p>Our very first post.</p>\n", 
+            "title": "First article", 
+            "photo": null, 
+            "source": null, 
+            "content_type": 29, 
+            "authors": [
+                1
+            ], 
+            "slug": "first-article"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "core.placement", 
+        "fields": {
+            "category": 1, 
+            "publish_from": "2009-12-25 06:00:00", 
+            "publish_to": null, 
+            "static": false, 
+            "publishable": 1, 
+            "slug": "first-article"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "core.listing", 
+        "fields": {
+            "category": 1, 
+            "publish_from": "2009-12-25 06:00:00", 
+            "placement": 1, 
+            "priority_value": null, 
+            "commercial": false, 
+            "publish_to": null, 
+            "priority_to": null, 
+            "priority_from": null
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "core.hitcount", 
+        "fields": {
+            "hits": 0, 
+            "last_seen": "2009-12-29 02:30:55"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "articles.article", 
+        "fields": {
+            "updated": null, 
+            "authors": [
+                1
+            ], 
+            "upper_title": "", 
+            "created": "2009-12-29 02:30:55"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "articles.articlecontents", 
+        "fields": {
+            "content": "<h1>An amazing post</h1>\n\n<ul>\n<li>made</li>\n<li>with</li>\n<li><a href=\"http://ella.github.com/\" title=\"Ella\">Ella</a></li>\n</ul>\n", 
+            "article": 1, 
+            "title": ""
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "djangomarkup.sourcetext", 
+        "fields": {
+            "modification_time": "2009-12-29 02:30:55", 
+            "object_id": 1, 
+            "content": "Our very first post.", 
+            "field": "description", 
+            "content_type": 29, 
+            "processor": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "djangomarkup.sourcetext", 
+        "fields": {
+            "modification_time": "2009-12-29 02:30:55", 
+            "object_id": 1, 
+            "content": "An amazing post\n===============\n- made\n- with\n- [Ella](http://ella.github.com/ \"Ella\")\n", 
+            "field": "content", 
+            "content_type": 30, 
+            "processor": 1
+        }
+    }
+]

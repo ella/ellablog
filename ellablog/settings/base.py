@@ -77,6 +77,8 @@ INSTALLED_APPS = (
     'ella.articles',
 
     'djangomarkup',
+
+    'ellablog.service',
 )
 
 NEWMAN_MEDIA_PREFIX = MEDIA_URL + 'newman/'
