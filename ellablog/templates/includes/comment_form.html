@@ -1,0 +1,65 @@
+{% load threadedcomments_tags custom_urls_tags %}
+
+{% if not form %}
+    {% get_comment_form for object as form %}
+    <form action="{% custom_url object comments-new %}" method="POST">
+{% else %}
+    <form action="" method="POST">
+{% endif %}
+
+    {% csrf_token %}
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}" />
+    {% else %}
+        <input type="hidden" name="next" value="{{ object.get_absolute_url }}" />
+    {% endif %}
+
+    {{ form.content_type.as_hidden }}
+    {{ form.object_pk.as_hidden }}
+    {{ form.timestamp.as_hidden }}
+    {{ form.security_hash.as_hidden }}
+    {{ form.parent.as_hidden }}
+
+    
+    <fieldset>
+        <div style="display: none;">
+            <label for="id_honeypot">
+                {{ form.honeypot.label }}<br />
+                {% if form.honeypot.errors %}<ul><li>{{ form.honeypot.errors|join:"</li><li>" }}</li></ul>{% endif %}
+                {{ form.honeypot }}
+            </label><br />
+        </div>
+        <label for="id_title">
+            {{ form.title.label }}<br />
+            {% if form.title.errors %}<ul><li>{{ form.title.errors|join:"</li><li>" }}</li></ul>{% endif %}
+            {{ form.title }}
+        </label><br />
+        {% if not user.is_authenticated %}  
+            <label for="id_name">
+                {{ form.name.label }}<br />
+                {% if form.name.errors %}<ul><li>{{ form.name.errors|join:"</li><li>" }}</li></ul>{% endif %}
+                {{ form.name }}
+            </label><br />
+            <label for="id_email">
+                {{ form.email.label }}<br />
+                {% if form.email.errors %}<ul><li>{{ form.email.errors|join:"</li><li>" }}</li></ul>{% endif %}
+                {{ form.email }}
+            </label><br />
+        {% endif %}
+        <label for="id_url">
+            {{ form.url.label }}<br />
+            {% if form.url.errors %}<ul><li>{{ form.url.errors|join:"</li><li>" }}</li></ul>{% endif %}
+            {{ form.url }}
+        </label><br />
+        <label for="id_comment">
+            {{ form.comment.label }}<br />
+            {% if form.comment.errors %}<ul><li>{{ form.comment.errors|join:"</li><li>" }}</li></ul>{% endif %}
+            {{ form.comment }}
+        </label><br />
+    </fieldset>
+
+    <p class="submit">
+        <input type="submit" name="post" class="submit-post" value="{% trans "Post" %}" />
+    </p>  
+</form>
+

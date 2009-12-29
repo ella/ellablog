@@ -1,0 +1,36 @@
+{% load threadedcomments_tags custom_urls_tags %}
+ 
+{% if not comment_list %}
+    {% get_comment_list for object as comment_list %}
+{% endif %}
+ 
+{% for c in comment_list|fill_tree|annotate_tree %}
+ 
+{% ifchanged c.parent_id %}{% else %}
+    </li>
+{% endifchanged %}
+ 
+{% if not c.open and not c.close %}
+    </li>
+{% endif %}
+    
+{% if c.open %}
+    <ul>
+{% endif %}
+ 
+<li{% if c.last %} class="last"{% endif %}>
+ 
+comment {{ c.id }} by
+{% if c.email %}<a href="mailto:{{ c.email }}">{% endif %}{{ c.name }}{% if c.email %}</a>{% endif %}
+{% if c.url %}(<a href="{{ c.url}}">WWW</a>){% endif %}
+on
+{{ c.submit_date|date}} {{ c.submit_date|time}}<br />
+{{ c.comment }}
+<a href="{% custom_url object comments-reply c.id %}">reply</a>
+ 
+{% for close in c.close %}
+    </li>
+    </ul>
+{% endfor %}
+ 
+{% endfor %}
