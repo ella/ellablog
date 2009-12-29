@@ -3,4 +3,5 @@ django
 markdown2
 -e git://github.com/ella/django-markup.git#egg=django-markup
 -e git://github.com/ella/ella.git#egg=ella
+-e git://github.com/ericflo/django-threadedcomments.git#egg=django-threadedcomments
 
